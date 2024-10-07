@@ -27,8 +27,7 @@ def get_clicks():
 @app.route("/api/click", methods=["POST"])
 def add_click():
     global total_clicks
-    random_increment = random.randint(1, 10)  # Random increment between 1 and 10
-    total_clicks += random_increment
+    total_clicks += 1
     return jsonify({"clicks": total_clicks})
 
 
