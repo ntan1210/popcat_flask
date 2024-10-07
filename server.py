@@ -32,17 +32,6 @@ def add_click():
     return jsonify({"clicks": total_clicks})
 
 
-# Function to increment clicks automatically every 20 seconds
-def auto_increment():
-    global total_clicks
-    random_increment = random.randint(1, 10)  # Random increment between 1 and 10
-    total_clicks += random_increment
-    print(f"Auto-incremented by {random_increment}, total clicks: {total_clicks}")
-    # Schedule the function to run again after 20 seconds
-    Timer(20, auto_increment).start()
-
-
 # Start the auto increment on server startup
 if __name__ == "__main__":
-    auto_increment()
     app.run(host="0.0.0.0", port=8000, debug=True)
